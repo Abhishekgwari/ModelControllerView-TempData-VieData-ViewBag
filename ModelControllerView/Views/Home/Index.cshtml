@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    //  var emp = ViewData["myEmployee"] as Employee;       // typecasting  in model and Employee is model
+ //   var emp = ViewBag.myEmployee;                // we dont need typecasting
+
+  //  var emp = TempData["myEmployee"] as Employee;
+
+
+  //  var emps = ViewData["myEmployee"] as List< Employee>;          // tycasted into list
+  //  var emps = ViewBag.myEmployee; // no need of type casting 
+    var emps = TempData["myEmployee"] as List<Employee>;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@* @{
+if(emp!= null)
+{
+
+<h2>Employee Id @emp.EmpId</h2>
+<h2>Employee Name @emp.EmpName</h2>
+<h2>Designation @emp.Designation</h2>
+<h2> Salary @emp.Salary</h2>
+}
+} *@
+
+@{
+    if (emps != null)
+    {
+        foreach(var item in emps)
+        {
+            <h2>Employee Id @item.EmpId</h2>
+            <h2>Employee Name @item.EmpName</h2>
+            <h2>Designation @item.Designation</h2>
+            <h2> Salary @item.Salary</h2>
+            <p>-----------------------------</p>
+        }
+        
+    }
+}
